@@ -19,6 +19,7 @@ export default function App() {
         >
 
           <Button>Default Primary</Button>
+          <Button disabled>Default Primary</Button>
         </Section>
 
         <Section
@@ -27,6 +28,7 @@ export default function App() {
         >
 
           <Button variant="secondary">Default Secondary</Button>
+          <Button variant="secondary" disabled>Default Secondary</Button>
 
         </Section>
 
@@ -36,6 +38,7 @@ export default function App() {
         >
 
           <Button variant="tertiary">Default Tertiary</Button>
+          <Button variant="tertiary" disabled>Default Tertiary</Button>
         </Section>
 
         <Section
