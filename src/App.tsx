@@ -20,6 +20,7 @@ export default function App() {
 
           <Button>Default Primary</Button>
           <Button disabled>Default Primary</Button>
+          <Button colors={ { bg: 'bg-amber-500 ', hoverBg: "hover:bg-amber-600", focusRing: "focus:ring-amber-500"}}>Amber Primary</Button>
         </Section>
 
         <Section
@@ -29,6 +30,8 @@ export default function App() {
 
           <Button variant="secondary">Default Secondary</Button>
           <Button variant="secondary" disabled>Default Secondary</Button>
+          <Button variant="secondary" colors={ { text: 'text-amber-500 ', hoverBorder: "hover:border-amber-500", hoverBg: "hover:bg-amber-500", focusRing: "focus:ring-amber-500"}}>Amber Secondary</Button>
+
 
         </Section>
 
@@ -39,6 +42,8 @@ export default function App() {
 
           <Button variant="tertiary">Default Tertiary</Button>
           <Button variant="tertiary" disabled>Default Tertiary</Button>
+          <Button variant="tertiary" colors={ { text: 'text-amber-500 ', hoverText: "hover:text-amber-700", focusRing: "focus:ring-amber-500" }}>Amber Secondary</Button>
+
         </Section>
 
         <Section
