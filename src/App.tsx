@@ -2,6 +2,9 @@ import Section from "./components/site/Section";
 import Container from "./components/site/Container";
 import Layout from "./components/site/Layout";
 import Button from "./components/library/Button";
+import { BlockLinkCard, ContentCard } from "./components/library/Card";
+import { SiNextdotjs, SiVite } from "react-icons/si";
+import Input from "./components/library/Input";
 
 export default function App() {
 	return (
@@ -72,28 +75,105 @@ export default function App() {
         
       </Container>
       <Container
-        title="Container heading using a component instead of hardcoding"
-        description="Container description"
+        title="Card"
+        description="A card us a flexible and extensible conten container."
       >
 
 
         {/* Section */}
         <Section
-          title="Section heading using a component instead of hardcoding"
-          description="Section description"
+          title="Simple"
+          description="Simple cards display content and can provide a distinct link that can be selected."
         >
-
-          <div className="bg-blue-500/50 p-3">component 1</div>
-          <div className="bg-blue-500/50 p-3">component 2</div>
+          <ContentCard
+            title="Card title"
+            subtitle="Card subtitle"
+            plaintext="Some quick example text to build on the card title and make up the bulk of the card's content"
+            link={{
+              url: "#",
+              text: "Card link"
+            }}
+          >
+            
+          </ContentCard>
         </Section>
 
+        {/* Section */}
         <Section
-          title="Section heading using a component instead of hardcoding"
-          description="Section description"
+          title="Simple with a header and footer"
+          description="Add an optional header and/or footer within a card."
         >
+          <ContentCard
+            header="Featured"
+            title="Card title"
+            subtitle="Card subtitle"
+            plaintext="Some quick example text to build on the card title and make up the bulk of the card's content"
+            link={{
+              url: "#",
+              text: "Card link"
+            }}
+          >
+            
+          </ContentCard>
+          <ContentCard
+          footer="Last updated 5 mins ago"
+            title="Card title"
+            subtitle="Card subtitle"
+            plaintext="Some quick example text to build on the card title and make up the bulk of the card's content"
+            link={{
+              url: "#",
+              text: "Card link"
+            }}
+          >
+            
+          </ContentCard>
+        </Section>
 
-          <div className="bg-blue-500/50 p-3">component 1</div>
-          <div className="bg-blue-500/50 p-3">component 2</div>
+        {/* Section */}
+        <Section
+          title="Block link"
+          description="A simple card enhanced into a selectable block link."
+        >
+          <BlockLinkCard url="https://vitejs.dev/" text="vite">
+            <SiVite className="h-10 w-10" />
+          </BlockLinkCard>
+
+          <BlockLinkCard url="https://nextjs.org/" text="Next.js">
+            <SiNextdotjs className="h-10 w-10" />
+          </BlockLinkCard>
+        </Section>
+        
+      </Container>
+
+      <Container
+        title="Inputs"
+        description="An input is a widget that allows users to provide data or specify options, which can be submitted as part of a form or used to interact with and manipulate content on a web page."
+      >
+
+
+        {/* Section */}
+        <Section
+          title="Basic"
+          description="Basic input with a placeholder."
+        >
+          <Input type="text" placeholder="Type things here!" />
+          <Input disabled type="text" placeholder="Disabled" />
+        </Section>
+
+        {/* Section */}
+        <Section
+          title="Label"
+          description="Input with a label."
+        >
+          <Input type="email" label="Email" placeholder="you@site.com" />
+        </Section>
+
+        {/* Section */}
+        <Section
+          title="Description"
+          description="Input with a description."
+        >
+          <Input type="password" label="Password" placeholder="super secret!" description="We'll totally hash this my friend ;)" />
         </Section>
         
       </Container>
