@@ -66,7 +66,7 @@ export const BlockLinkCard = ({ url, text, children } : { url?: string, text?: s
 
   return (
     <CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50">
-      <a href={url || "#tt"} className={linkClasses} target="_blank">
+      <a href={url || "#"} className={linkClasses} target="_blank">
         {linkContent}
       </a>
     </CardContainer>
