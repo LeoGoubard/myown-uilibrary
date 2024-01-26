@@ -9,10 +9,10 @@ const Container: React.FC<ContainerProps> = ({ title, description, children }) =
   return (
     <>
       <header>
-        <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl">
+        <h1 className="block text-2xl font-bold text-gray-800 dark:text-white sm:text-3xl">
           {title}
         </h1>
-        <p className="mt-2 text-lg text-gray-800">
+        <p className="mt-2 text-lg text-gray-800 dark:text-white">
           {description}
         </p>
       </header>

@@ -9,10 +9,10 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ title, description, children }) => {
   return (
     <div>
-        <h2 className="text-lg font-bold text-gray-800">
+        <h2 className="text-lg font-bold text-gray-800 dark:text-white">
           {title}
         </h2>
-        <p className="mt-1 text-gray-600">
+        <p className="mt-1 text-gray-600 dark:text-white">
           {description}
         </p>
 
