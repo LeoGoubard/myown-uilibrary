@@ -1,16 +1,28 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge';
 
-type CardContainerProps = React.HTMLAttributes<HTMLDivElement>
+type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
+  widthLimit?: "none" | "xs" | "sm" | "md" | "lg"
+}
 
-export const CardContainer: React.FC<CardContainerProps> = ({ className, children, ...props }) => {
+const cardWidths = {
+  none: "",
+  xs: "max-w-xs",
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg"
+}
+
+export const CardContainer: React.FC<CardContainerProps> = ({ className, children, widthLimit="xs", ...props }) => {
 
   const baseClasses: string = "rounded-xl border bg-white shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:shadow-zinc-700/[.7]";
 
   const mergedClasses = twMerge([baseClasses, className])
 
+  const widthClass = twMerge(["w-full", cardWidths[widthLimit]])
+
   return (
-    <div className="w-full max-w-xs" {...props}>
+    <div className={widthClass} {...props}>
       <div className={mergedClasses}>
         {children}
       </div>
@@ -18,9 +30,9 @@ export const CardContainer: React.FC<CardContainerProps> = ({ className, childre
   )
 }
 
-export const ContentCard = ({ header, footer, title, subtitle, plaintext, link, children } : { header?: string, footer?: string, title?: string, subtitle?: string, plaintext?: string, link?: { url: string, text: string }, children?: React.ReactNode }) => {
+export const ContentCard = ({ header, footer, title, subtitle, plaintext, widthLimit, link, children } : { header?: string, footer?: string, title?: string, subtitle?: string, plaintext?: string, widthLimit?: CardContainerProps["widthLimit"], link?: { url: string, text: string }, children?: React.ReactNode }) => {
   return (
-    <CardContainer>
+    <CardContainer widthLimit={widthLimit}>
 
       {header && 
         <div className="rounded-t-xl border-b bg-gray-100 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-800 md:px-5 md:py-4">
@@ -54,7 +66,7 @@ export const ContentCard = ({ header, footer, title, subtitle, plaintext, link, 
   )
 }
 
-export const BlockLinkCard = ({ url, text, children } : { url?: string, text?: string, children?: React.ReactNode }) => {
+export const BlockLinkCard = ({ url, text, children, CustomLinkedComponent, widthLimit, customLinksProps = {} } : { url?: string, text?: string, children?: React.ReactNode, widthLimit?: CardContainerProps["widthLimit"], CustomLinkedComponent?: React.ComponentType<any>, customLinksProps?: any }) => {
 
   const linkClasses: string = "flex flex-col items-center p-6 sm:p-10"
   const linkContent = (
@@ -65,10 +77,17 @@ export const BlockLinkCard = ({ url, text, children } : { url?: string, text?: s
   )
 
   return (
-    <CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50 dark:text-white dark:hover:bg-zinc-700/50">
-      <a href={url || "#"} className={linkClasses} target="_blank">
+    <CardContainer widthLimit={widthLimit} className="text-gray-800 transition-colors hover:bg-gray-200/50 dark:text-white dark:hover:bg-zinc-700/50">
+      {CustomLinkedComponent ? (
+        <CustomLinkedComponent className={linkClasses} {...customLinksProps}>
+          {linkContent}
+        </CustomLinkedComponent>
+      ) : (
+        <a href={url || "#"} className={linkClasses} target="_blank" { ...(customLinksProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
         {linkContent}
       </a>
+      )}
+      
     </CardContainer>
   )
 }
