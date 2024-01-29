@@ -11,6 +11,7 @@ const ButtonPage = () => {
 
         {/* Section */}
         <Section
+          id="button-primary"
           title="Primary"
           description="Primary actions should be obvious. Solid, high contast background colors work great here."
         >
@@ -25,6 +26,7 @@ const ButtonPage = () => {
         </Section>
 
         <Section
+          id="button-secondary"
           title="Secondary"
           description="Secondary actions should be obvious. Solid, high contast background colors work great here."
         >
@@ -46,6 +48,7 @@ const ButtonPage = () => {
         </Section>
 
         <Section
+          id="button-tertiary"
           title="Tertiary"
           description="Tertiary actions should be obvious. Solid, high contast background colors work great here."
         >
@@ -66,6 +69,7 @@ const ButtonPage = () => {
         </Section>
 
         <Section
+          id="button-destructive"
           title="Destructive"
           description="Destructive actions should be obvious. Solid, high contast background colors work great here."
         >

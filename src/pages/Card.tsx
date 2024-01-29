@@ -13,6 +13,7 @@ const CardPage = () => {
 
         {/* Section */}
         <Section
+          id="card-simple"
           title="Simple"
           description="Simple cards display content and can provide a distinct link that can be selected."
         >
@@ -31,6 +32,7 @@ const CardPage = () => {
 
         {/* Section */}
         <Section
+          id="card-header-footer"
           title="Simple with a header and footer"
           description="Add an optional header and/or footer within a card."
         >
@@ -47,7 +49,7 @@ const CardPage = () => {
             
           </ContentCard>
           <ContentCard
-          footer="Last updated 5 mins ago"
+            footer="Last updated 5 mins ago"
             title="Card title"
             subtitle="Card subtitle"
             plaintext="Some quick example text to build on the card title and make up the bulk of the card's content"
@@ -62,6 +64,7 @@ const CardPage = () => {
 
         {/* Section */}
         <Section
+          id="card-block-link"
           title="Block link"
           description="A simple card enhanced into a selectable block link."
         >

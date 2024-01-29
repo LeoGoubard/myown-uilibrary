@@ -9,9 +9,9 @@ const InputPage = () => {
         description="An input is a widget that allows users to provide data or specify options, which can be submitted as part of a form or used to interact with and manipulate content on a web page."
       >
 
-
         {/* Section */}
         <Section
+          id="input-basic"
           title="Basic"
           description="Basic input with a placeholder."
         >
@@ -21,6 +21,7 @@ const InputPage = () => {
 
         {/* Section */}
         <Section
+          id="input-label"
           title="Label"
           description="Input with a label."
         >
@@ -29,6 +30,7 @@ const InputPage = () => {
 
         {/* Section */}
         <Section
+          id="input-description"
           title="Description"
           description="Input with a description."
         >
