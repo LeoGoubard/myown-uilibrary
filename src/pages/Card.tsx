@@ -3,6 +3,7 @@ import Section from '../components/site/Section'
 import { BlockLinkCard, ContentCard } from '../components/library/Card'
 import { SiNextdotjs, SiVite } from 'react-icons/si'
 
+
 const CardPage = () => {
   return (
     <Container

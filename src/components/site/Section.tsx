@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RxLink2 } from 'react-icons/rx';
 import { Link, useLocation } from 'react-router-dom';
+import Accordion from './Accordion';
+import Code from './Code';
 
 interface SectionProps {
   id?: string;
@@ -10,24 +12,33 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ id, title, description, children }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
     <div>
-        
-        <Title id={id || title} title={title} />
-        <p className="mt-1 text-gray-600 dark:text-white">
-          {description}
-        </p>
+      <Title id={id || title} title={title} />
+      <p className="mt-1 text-gray-600 dark:text-white">
+        {description}
+      </p>
+      <Accordion setIsOpen={setIsOpen} isOpen={isOpen} />
+      
 
-        <div className="mt-3">
-          <div className="flex flex-col rounded-xl border p-6 shadow-sm">
-            <div className="flex flex-wrap gap-2">
-              {/* preview */}
-              {children}
-            </div>
+      <div className="mt-3">
+        <div className="flex flex-col rounded-xl border p-6 shadow-sm">
+          <div className="flex flex-wrap gap-2">
+            {/* preview */}
+            {children}
           </div>
+          {isOpen && (
+            <div className="max-h-[400px] overflow-hidden rounded-b-xl bg-gray-800 transition-[max-height] duration-500 ease-in-out dark:bg-zinc-950">
+              <div className="max-h-[400px] overflow-y-scroll rounded-b-xl p-6 dark:border-zinc-700">
+                <Code />
+              </div>
+            </div>  
+          )}
         </div>
-
       </div>
+       
+    </div>
   )
 }
 
