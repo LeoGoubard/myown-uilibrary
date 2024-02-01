@@ -9,9 +9,10 @@ interface SectionProps {
   title: string;
   description: string;
   children: React.ReactNode;
+  codeBlock?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, description, children }) => {
+const Section: React.FC<SectionProps> = ({ id, title, description, children, codeBlock }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
     <div>
@@ -31,7 +32,7 @@ const Section: React.FC<SectionProps> = ({ id, title, description, children }) =
           {isOpen && (
             <div className="max-h-[400px] overflow-hidden rounded-b-xl bg-gray-800 transition-[max-height] duration-500 ease-in-out dark:bg-zinc-950">
               <div className="max-h-[400px] overflow-y-scroll rounded-b-xl p-6 dark:border-zinc-700">
-                <Code />
+                <Code codeBlock={codeBlock || ''} />
               </div>
             </div>  
           )}
